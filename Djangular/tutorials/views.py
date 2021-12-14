@@ -20,7 +20,7 @@ def tutorial_detail(request, pk):
     # serialize_data = TutorialSerializer(post_data, many=True)
     # return JsonResponse({"status": "success", "data": serialize_data.data})
 
-    dataGET = Tutorial.objects.get()
+    dataGET = Tutorial.objects.get(pk=pk)
     data_dictGET = TutorialSerializer(dataGET).data
     contextGET = {'id':data_dictGET}
     return JsonResponse(data_dictGET, safe=False)
